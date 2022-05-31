@@ -1,0 +1,72 @@
+<!doctype html>
+   <html>
+  <head>
+    <title>Sayang</title>
+  </head>   
+    
+  <body>  
+      <form>
+          <center>
+      <button type="button">Klik Aku</button>
+      <h1><span class="typed-text"></span><span class="cursor"></span></h1>
+          </center>
+      </form> 
+  
+      
+      <script>
+         
+let btn = document.getElementsByTagName('button')[0];
+          
+btn.addEventListener('click', function(){
+btn.style.display = 'none';
+const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+ 
+const textArray = ["Halo Salshabila Puspita Rahayu :)", "Jangan Lupa Makan :)", "Jaga kesehatan Ya :)", "Jangan lari lari", "Nanti dimarahin Boboiboy"," HEHEHEHE"]; // ganti isi di dalam kode tersebut ataupun tambahkan dengan di awali koma 
+const typingDelay = 85;
+const erasingDelay = 50;
+const newTextDelay = 1200; 
+let textArrayIndex = 0;
+let charIndex = 0;
+ 
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+    setTimeout(erase, newTextDelay);
+  }
+}
+ 
+function erase() {
+  if (charIndex > 0) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+    textArrayIndex++;
+    if(textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
+ 
+  if(textArray.length) setTimeout(type, newTextDelay + 250);      
+});
+      
+      </script>
+  </body>
+</html>
+
+<div class="emoji  emoji_hati">
+  <div class="emoji_cinta"></div>
+</div>
+<div class="emoji  emoji_hati">
+  <div class="emoji_cinta"></div>
+</div>
